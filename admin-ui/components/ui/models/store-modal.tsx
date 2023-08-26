@@ -5,9 +5,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
-import { Modal } from "../modal";
-import { Input } from "../input";
+import { Modal } from "@/components/ui/modal";
+import { Input } from "@/components/ui/input";
 import {
   Form,
   FormControl,
@@ -15,9 +17,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../form";
-import { Button } from "../button";
-import { toast } from "react-hot-toast";
+} from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
   name: z.string().min(3),
@@ -25,6 +26,7 @@ const formSchema = z.object({
 
 export const StoreModal = () => {
   const storeModal = useStoreModal();
+  const router = useRouter();
 
   const [loading, setLoading] = useState(false);
 
@@ -39,8 +41,9 @@ export const StoreModal = () => {
     try {
       setLoading(true);
 
-      const responce = await axios.post("/api/stores", values);
-      toast.success("store created.");
+      const response = await axios.post("/api/stores", values);
+      // toast.success("Store Created.");
+      window.location.assign(`/${response.data.id}`);
     } catch (error) {
       console.log(error);
       toast.error("Error in store creation");

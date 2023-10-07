@@ -2,10 +2,6 @@ import React from "react";
 import prismadb from "@/lib/prismadb";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import { Trash } from "lucide-react";
-
-import { Heading } from "@/components/ui/header";
-import { Button } from "@/components/ui/button";
 import { SettingsForm } from "./components/setting-form";
 
 interface SettingPageProps {

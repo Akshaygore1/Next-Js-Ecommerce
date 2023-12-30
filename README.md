@@ -1,4 +1,4 @@
-# Next.js E-commerce App README
+# Next.js 14 E-commerce App
 
 ## Overview
 This Next.js E-commerce application is designed to support both an admin dashboard and a store, leveraging technologies such as Cloudinary for image management, PlanetScale as the database, Prisma for database interaction, TypeScript for enhanced type safety, and Next.js for a robust and performant front end.
